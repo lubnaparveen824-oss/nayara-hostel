@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Nayara Ladies Hostel — Safe, comfortable, and affordable accommodation for students and working women in Vellore, Tamil Nadu.">
+  <title>Nayara Ladies Hostel — Vellore</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink:#e8fbf9; /* used as soft background, now teal-leaning */
+      --maroon:#0b8f86; /* primary teal color */
+      --soft-beige:#f7fcfb;
+      --white:#ffffff;
+      --muted:#5f6b68;
+      --glass: rgba(255,255,255,0.88);
+      --glass-2: rgba(240,255,253,0.9);
+      --accent: #2ec4b6; /* bright teal accent */
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      color:#222;background:linear-gradient(180deg,var(--soft-beige),#fff 60%);
+      -webkit-font-smoothing:antialiased;line-height:1.45;
+    }
+    a{color:inherit}
+    header{position:sticky;top:0;z-index:120;background:transparent;backdrop-filter:blur(6px);transition:all .28s ease}
+    header.scrolled{background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(255,255,255,0.92));box-shadow:0 8px 28px rgba(0,0,0,0.08);border-bottom:1px solid rgba(11,143,134,0.06)}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 18px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{height:54px;width:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--maroon));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:18px;box-shadow:0 8px 28px rgba(11,143,134,0.12)}
+    .brand h1{font-size:16px;margin:0;color:var(--maroon);letter-spacing:0.2px}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{padding:10px 12px;border-radius:10px;font-weight:600;color:var(--maroon);text-decoration:none;transition:all .18s}
+    nav a:hover{background:var(--glass-2);transform:translateY(-2px);box-shadow:0 8px 18px rgba(11,143,134,0.06)}
+    nav a.active{background:linear-gradient(90deg,rgba(46,196,182,0.12),rgba(11,143,134,0.06));border-radius:10px}
+    .cta-desktop{display:flex;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;background:linear-gradient(135deg,var(--maroon),#07746f);color:white;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 22px rgba(11,143,134,0.09)}
+    .btn.secondary{background:transparent;color:var(--maroon);border:2px solid rgba(11,143,134,0.08);font-weight:700}
+    /* Mobile first */
+    .hamburger{display:flex;align-items:center;gap:8px}
+    .hamburger button{background:transparent;border:none;padding:8px;display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--maroon)}
+    .menu{position:fixed;inset:0;display:flex;flex-direction:column;padding:80px 18px 18px;background:linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,245,245,0.98));transform:translateY(-8%);opacity:0;pointer-events:none;transition:all .28s ease;border-bottom-left-radius:12px;border-bottom-right-radius:12px}
+    .menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+    .menu nav ul{flex-direction:column;gap:12px}
+    /* Hero */
+    .hero{min-height:72vh;display:flex;align-items:center;padding:42px 0;position:relative}
+    .hero-inner{display:flex;flex-direction:column;gap:18px;padding:18px 0}
+    .superhead{font-size:14px;color:var(--maroon);font-weight:600}
+    .headline{font-size:28px;line-height:1.02;font-weight:800;color:var(--maroon);margin:0;text-align:left}
+    .subhead{color:var(--muted);max-width:680px}
+    /* center hero text on small screens for better balance */
+    @media(max-width:699px){
+      .hero-copy{text-align:center}
+      .headline{text-align:center}
+      .subhead{margin-left:auto;margin-right:auto}
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+    .badges{position:absolute;right:18px;top:40px;display:flex;flex-direction:column;gap:10px}
+    .badge{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--glass);border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06);backdrop-filter:blur(6px);font-weight:600;color:var(--maroon)}
+    .hero-media{margin-top:18px;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+    .hero-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .hero-media img:hover{transform:scale(1.02)}
+    .placeholder{min-height:220px;background:linear-gradient(135deg,var(--pink),#fff0f4);display:flex;align-items:center;justify-content:center;color:var(--maroon);font-weight:700}
+    /* sections */
+    section{padding:48px 0}
+    .section-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .glass-grid{display:grid;gap:16px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.65),rgba(255,255,255,0.5));border-radius:14px;padding:18px;box-shadow:0 8px 18px rgba(0,0,0,0.06);backdrop-filter:blur(8px);transition:transform .28s ease,box-shadow .28s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.08)}
+    .fac-grid{grid-template-columns:repeat(2,1fr)}
+    .why-grid{grid-template-columns:repeat(2,1fr)}
+    .facility{display:flex;gap:14px;align-items:center}
+    .icon{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--maroon));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .gallery-item{position:relative;overflow:hidden;border-radius:12px;min-height:120px;background:linear-gradient(135deg,#fff0f2,#fff0f4);transition:transform .45s cubic-bezier(.2,.9,.25,1),box-shadow .3s;display:block}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;cursor:pointer;border-radius:12px}
+    .gallery-item img:hover{transform:scale(1.06)}
+    .gallery-item:focus-within{outline:3px solid rgba(46,196,182,0.18)}
+    .gallery-item:hover{transform:scale(1.035);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+    .gallery-label{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,0.7);padding:8px 10px;border-radius:10px;font-weight:700;color:var(--maroon)}
+    /* Contact */
+    .contact-grid{display:grid;gap:12px}
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .action-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:var(--maroon);color:#fff;text-decoration:none;font-weight:700}
+    .muted{color:var(--muted)}
+    footer{padding:28px 0;background:linear-gradient(180deg,transparent,rgba(11,143,134,0.03));border-top:1px solid rgba(11,143,134,0.04)}
+    .top-btn{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--maroon);color:white;box-shadow:0 10px 30px rgba(11,143,134,0.18);border:none;cursor:pointer;opacity:0;transform:translateY(12px);transition:all .28s}
+    .top-btn.show{opacity:1;transform:translateY(0)}
+    /* larger screens */
+    @media(min-width:700px){
+      .menu{position:static;transform:none;opacity:1;background:transparent;padding:0}
+      nav ul{flex-direction:row}
+      .hamburger{display:none}
+      .hero{min-height:80vh}
+      .hero-inner{flex-direction:row;align-items:center;gap:28px}
+      .headline{font-size:44px}
+      .badges{right:40px;top:80px}
+      .hero-media{flex:1}
+      .hero-copy{flex:1}
+      .fac-grid{grid-template-columns:repeat(4,1fr)}
+      .why-grid{grid-template-columns:repeat(3,1fr)}
+      .gallery-grid{grid-template-columns:repeat(5,1fr)}
+      .gallery-item{min-height:140px}
+      .contact-grid{grid-template-columns:1fr 300px}
+    }
+    @media(min-width:1000px){
+      .container{padding:0}
+      .glass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+      .headline{font-size:56px}
+    }
+    /* reveal animations */
+    .reveal{opacity:0;transform:translateY(18px);transition:all .7s cubic-bezier(.2,.9,.25,1)}
+    .reveal.revealed{opacity:1;transform:none}
+    /* animated gradient hero */
+    @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .hero{background:linear-gradient(270deg,var(--pink),#fff6f8,#fff0f4);background-size:600% 600%;animation:gradientShift 14s ease infinite}
+    /* floating badges */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .badge{animation:floaty 6s ease-in-out infinite}
+    /* stagger reveal using CSS variable */
+    .reveal{transition-delay:var(--delay,0ms)}
+    /* refined card hover */
+    .card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 26px 60px rgba(0,0,0,0.12)}
+    /* button microinteractions */
+    .btn{transition:transform .18s ease,box-shadow .18s ease}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,143,134,0.12)}
+    /* nav active */
+    nav a.active{background:linear-gradient(90deg,rgba(201,75,109,0.14),rgba(122,31,46,0.06));}
+    /* lightbox controls */
+    #lightbox .lb-prev,#lightbox .lb-next{position:absolute;left:10px;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.32);border:none;color:#fff;padding:12px;border-radius:8px;cursor:pointer;font-size:18px}
+    #lightbox .lb-prev{left:20px}
+    #lightbox .lb-next{right:20px}
+  </style>
+</head>
+<body>
+  <button class="top-btn" aria-label="Back to top" id="topBtn">↑</button>
+  <header id="siteHeader">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden>NL</div>
+        <div>
+          <h1>Nayara Ladies Hostel</h1>
+          <div style="font-size:12px;color:var(--muted)">Vellore, Tamil Nadu</div>
+        </div>
+      </div>
+      <div class="hamburger">
+        <div class="menu" id="menu">
+          <nav aria-label="Primary Navigation">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#facilities">Facilities</a></li>
+              <li><a href="#why">Why Choose Us</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <button id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="cta-desktop">
+        <a class="btn secondary" href="tel:07358996444">Call</a>
+        <a class="btn" href="tel:07358996444">Contact</a>
+      </div>
+    </div>
+  </header>
+  <main id="home">
+    <section class="hero container" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="superhead">Your Home Away From Home</div>
+          <h1 class="headline" id="hero-heading">Your Home Away From Home</h1>
+          <p class="subhead">Safe, comfortable, and affordable accommodation for students and working women in Vellore.</p>
+          <div class="hero-ctas">
+            <a class="btn" href="tel:07358996444">Call Now</a>
+            <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=101,+Infantry+Rd,+Vellore">Get Directions</a>
+          </div>
+        </div>
+        <div class="hero-media" role="img" aria-label="Hero Background">
+          <img src="assets/unnamed%20(1).webp" alt="Nayara Ladies Hostel exterior">
+        </div>
+      </div>
+      <div class="badges" aria-hidden>
+        <div class="badge">✓ 24/7 Security</div>
+        <div class="badge">✓ Hygienic Food</div>
+        <div class="badge">✓ Comfortable Rooms</div>
+        <div class="badge">✓ Prime Location</div>
+        <div class="badge">✓ Friendly Environment</div>
+      </div>
+    </section>
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="about-heading">About Nayara Ladies Hostel</h2>
+        </div>
+        <div class="glass-grid">
+          <div class="card reveal" style="grid-column:span 2">
+            <div style="display:grid;grid-template-columns:1fr;gap:12px">
+              <p>Located in the heart of Vellore, Nayara Ladies Hostel offers safe, clean and supportive accommodation tailored for students and working women. We prioritize security, hygiene and a homelike atmosphere — all at affordable rates. Our campus-friendly location provides easy access to colleges, hospitals and public transport.</p>
+              <p>We provide well-furnished rooms, nutritious home-style meals, daily cleaning, and round-the-clock assistance. Join our friendly community that values privacy, respect and wellbeing.</p>
+            </div>
+          </div>
+          <div class="card reveal" role="img" aria-label="Hostel Building Photo">
+            <img src="assets/unnamed%20(2).webp" alt="Hostel Building Photo" style="width:100%;height:100%;object-fit:cover;border-radius:10px">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="facilities" aria-labelledby="facilities-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="facilities-heading">Facilities</h2>
+        </div>
+        <div class="glass-grid fac-grid">
+          <div class="card reveal facility"><div class="icon">🔒</div><div><strong>Safety &amp; Security</strong><div class="muted">24/7 monitoring & gated entry</div></div></div>
+          <div class="card reveal facility"><div class="icon">🛏️</div><div><strong>Comfortable Rooms</strong><div class="muted">Well-furnished single/double rooms</div></div></div>
+          <div class="card reveal facility"><div class="icon">🍽️</div><div><strong>Hygienic Food</strong><div class="muted">Nutritious home-style meals</div></div></div>
+          <div class="card reveal facility"><div class="icon">🧼</div><div><strong>Daily Cleaning</strong><div class="muted">Regular housekeeping services</div></div></div>
+          <div class="card reveal facility"><div class="icon">📶</div><div><strong>WiFi Facility</strong><div class="muted">High-speed internet</div></div></div>
+          <div class="card reveal facility"><div class="icon">⚡</div><div><strong>Power Backup</strong><div class="muted">Uninterrupted electricity</div></div></div>
+          <div class="card reveal facility"><div class="icon">🚰</div><div><strong>Water Supply</strong><div class="muted">Filtered & consistent supply</div></div></div>
+          <div class="card reveal facility"><div class="icon">🤝</div><div><strong>Friendly Community</strong><div class="muted">Supportive co-residents</div></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="why" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="why-heading">Why Choose Us</h2>
+        </div>
+        <div class="glass-grid why-grid">
+          <div class="card reveal"><strong>Safe Environment</strong><div class="muted">Secure premises & staff support</div></div>
+          <div class="card reveal"><strong>Affordable Pricing</strong><div class="muted">Transparent plans for students & professionals</div></div>
+          <div class="card reveal"><strong>Convenient Location</strong><div class="muted">Close to colleges and transit</div></div>
+          <div class="card reveal"><strong>Home Style Food</strong><div class="muted">Comforting daily meals</div></div>
+          <div class="card reveal"><strong>Comfortable Living</strong><div class="muted">Cozy rooms and amenities</div></div>
+          <div class="card reveal"><strong>Supportive Community</strong><div class="muted">Values privacy and companionship</div></div>
+        </div>
+      </div>
+    </section>
+    <section id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-head"><h2 id="gallery-heading">Gallery</h2></div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" role="img" aria-label="Gallery Image 1">
+            <img src="assets/unnamed%20(1).webp" alt="Gallery Image 1">
+            <div class="gallery-label">Gallery Image 1</div>
+          </div>
+          <div class="gallery-item reveal" role="img" aria-label="Gallery Image 2">
+            <img src="assets/unnamed%20(2).webp" alt="Gallery Image 2">
+            <div class="gallery-label">Gallery Image 2</div>
+          </div>
+          <div class="gallery-item reveal" role="img" aria-label="Gallery Image 3">
+            <img src="assets/unnamed%20(3).webp" alt="Gallery Image 3">
+            <div class="gallery-label">Gallery Image 3</div>
+          </div>
+          <div class="gallery-item reveal" role="img" aria-label="Gallery Image 4">
+            <img src="assets/unnamed%20(4).webp" alt="Gallery Image 4">
+            <div class="gallery-label">Gallery Image 4</div>
+          </div>
+          <div class="gallery-item reveal" role="img" aria-label="Gallery Image 5">
+            <img src="assets/unnamed%20(5).webp" alt="Gallery Image 5">
+            <div class="gallery-label">Gallery Image 5</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-head"><h2 id="contact-heading">Contact</h2></div>
+        <div class="contact-grid">
+          <div class="card reveal">
+            <p style="font-weight:700">Phone: <a href="tel:07358996444">07358996444</a></p>
+            <address class="muted">101, Infantry Rd,<br>Nethaji Stadium,<br>Vasanthapuram,<br>Kosapet,<br>Vellore,<br>Tamil Nadu 632001</address>
+            <div style="margin-top:12px" class="contact-actions">
+              <a class="action-btn" href="tel:07358996444">Call</a>
+              <a class="action-btn" href="https://wa.me/917358996444" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="action-btn" href="https://www.google.com/maps/search/?api=1&query=101,+Infantry+Rd,+Vellore" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+            <div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <img src="assets/viiting%20card.webp" alt="Visiting Card" class="clickable-img" style="width:260px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.12);border:1px solid rgba(0,0,0,0.04)">
+              <div class="muted">Scan or save our visiting card for quick contact.</div>
+            </div>
+          </div>
+          <div class="card reveal" aria-hidden style="padding:0;overflow:hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7777.794545055348!2d79.1302692!3d12.914323599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad39001846187d%3A0xf58f7458d070d35a!2sNAYARA%20LADIES%20HOSTEL!5e0!3m2!1sen!2sin!4v1781936829346!5m2!1sen!2sin" width="100%" height="360" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>
+          <strong>Nayara Ladies Hostel</strong>
+          <div class="muted">Safe, Comfortable & Affordable Accommodation for Women in Vellore.</div>
+        </div>
+        <div style="text-align:right">
+          <div class="muted">Phone: <a href="tel:07358996444">07358996444</a></div>
+          <div style="font-size:13px;color:var(--muted)">© 2026 Nayara Ladies Hostel</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Simple UI interactions: menu, reveal on scroll, back-to-top
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const menu = document.getElementById('menu');
+      const topBtn = document.getElementById('topBtn');
+      menuBtn.addEventListener('click',()=>{
+        const open = menu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open?'true':'false');
+      });
+
+      // Smooth offset for anchor links (accounting for sticky header)
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',function(e){
+          const href = this.getAttribute('href');
+          if(href.length>1){
+            e.preventDefault();
+            const el = document.querySelector(href);
+            if(!el) return;
+            const rect = el.getBoundingClientRect();
+            const offset = window.scrollY + rect.top - 72; // header height
+            window.scrollTo({top:offset,behavior:'smooth'});
+            // close mobile menu
+            if(menu.classList.contains('open')){menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}
+          }
+        })
+      })
+
+      // Back to top visibility
+      window.addEventListener('scroll',()=>{
+        if(window.scrollY>380) topBtn.classList.add('show'); else topBtn.classList.remove('show');
+      })
+      topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+      // IntersectionObserver for reveal animations
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('revealed'); obs.unobserve(e.target) }
+        })
+      },{threshold:0.12});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+      // Keyboard accessibility: close menu with Escape
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape' && menu.classList.contains('open')){menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')} })
+    })();
+    // Header scroll toggle (adds subtle background when scrolling)
+    (function(){
+      const headerEl = document.getElementById('siteHeader');
+      if(!headerEl) return;
+      function onScroll(){ if(window.scrollY>20) headerEl.classList.add('scrolled'); else headerEl.classList.remove('scrolled'); }
+      onScroll();
+      window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+    // Lightbox for gallery images
+    (function(){
+      const galleryImgs = Array.from(document.querySelectorAll('.gallery-item img, .clickable-img'));
+      if(!galleryImgs.length) return;
+      // create lightbox elements
+      const lb = document.createElement('div');
+      lb.id = 'lightbox';
+      lb.innerHTML = `
+        <div class="lb-backdrop" tabindex="-1">
+          <button class="lb-close" aria-label="Close">✕</button>
+          <img class="lb-img" src="" alt="">
+          <div class="lb-caption"></div>
+        </div>
+      `;
+      document.body.appendChild(lb);
+      const lbBackdrop = lb.querySelector('.lb-backdrop');
+      const lbImg = lb.querySelector('.lb-img');
+      const lbCaption = lb.querySelector('.lb-caption');
+      const lbClose = lb.querySelector('.lb-close');
+      let current = 0;
+      function open(index){
+        const img = galleryImgs[index];
+        if(!img) return;
+        current = index;
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+        lbCaption.textContent = img.alt || '';
+        lb.classList.add('open');
+        lbBackdrop.focus();
+      }
+      function close(){ lb.classList.remove('open'); lbImg.src=''; }
+      galleryImgs.forEach((img, i)=>{
+        img.setAttribute('tabindex','0');
+        img.addEventListener('click',()=>open(i));
+        img.addEventListener('keydown',(e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); open(i) } });
+      });
+      lbClose.addEventListener('click',close);
+      lbBackdrop.addEventListener('click',(e)=>{ if(e.target===lbBackdrop) close(); });
+      document.addEventListener('keydown',(e)=>{
+        if(!lb.classList.contains('open')) return;
+        if(e.key==='Escape') close();
+        if(e.key==='ArrowRight'){ open((current+1)%galleryImgs.length) }
+        if(e.key==='ArrowLeft'){ open((current-1+galleryImgs.length)%galleryImgs.length) }
+      });
+    })();
+    // Stagger reveal delays, scrollspy, hero parallax and lightbox controls
+    (function(){
+      // stagger reveal
+      document.querySelectorAll('.reveal').forEach((el,i)=>el.style.setProperty('--delay', `${i*80}ms`));
+
+      // scrollspy active link
+      const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      function updateActive(){
+        const offset = 120;
+        let active = sections[0];
+        for(const s of sections){
+          if(s.getBoundingClientRect().top - offset <= 0) active = s;
+        }
+        navLinks.forEach(a=>a.classList.remove('active'));
+        const al = document.querySelector(`nav a[href="#${active.id}"]`);
+        if(al) al.classList.add('active');
+      }
+      updateActive(); window.addEventListener('scroll', updateActive, {passive:true});
+
+      // hero parallax
+      const heroImg = document.querySelector('.hero-media img');
+      const heroEl = document.querySelector('.hero');
+      if(heroImg && heroEl){
+        window.addEventListener('scroll',()=>{
+          const rect = heroEl.getBoundingClientRect();
+          const pct = Math.min(Math.max(-rect.top,0), window.innerHeight);
+          heroImg.style.transform = `translateY(${pct * 0.04}px) scale(1.02)`;
+        },{passive:true});
+      }
+
+      // add prev/next to lightbox
+      const L = document.getElementById('lightbox');
+      if(L){
+        const backdrop = L.querySelector('.lb-backdrop');
+        const prev = document.createElement('button'); prev.className='lb-prev'; prev.setAttribute('aria-label','Previous'); prev.textContent='‹';
+        const next = document.createElement('button'); next.className='lb-next'; next.setAttribute('aria-label','Next'); next.textContent='›';
+        backdrop.appendChild(prev); backdrop.appendChild(next);
+          prev.addEventListener('click',()=>{
+          const imgs = Array.from(document.querySelectorAll('.gallery-item img, .clickable-img'));
+          const currIdx = imgs.findIndex(i=>i.src === L.querySelector('.lb-img').src);
+          const idx = (currIdx - 1 + imgs.length) % imgs.length;
+          L.querySelector('.lb-img').src = imgs[idx].src; L.querySelector('.lb-caption').textContent = imgs[idx].alt || '';
+        });
+        next.addEventListener('click',()=>{
+          const imgs = Array.from(document.querySelectorAll('.gallery-item img, .clickable-img'));
+          const currIdx = imgs.findIndex(i=>i.src === L.querySelector('.lb-img').src);
+          const idx = (currIdx + 1) % imgs.length;
+          L.querySelector('.lb-img').src = imgs[idx].src; L.querySelector('.lb-caption').textContent = imgs[idx].alt || '';
+        });
+      }
+    })();
+  </script>
+  <style>
+    /* Lightbox styles */
+    #lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:160;}
+    #lightbox .lb-backdrop{width:100%;height:100%;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:24px;pointer-events:auto;outline:none}
+    #lightbox .lb-img{max-width:92%;max-height:78vh;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.6)}
+    #lightbox .lb-caption{color:#fff;font-weight:600;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:8px}
+    #lightbox .lb-close{position:absolute;right:20px;top:20px;background:transparent;border:none;color:#fff;font-size:22px;padding:10px;cursor:pointer}
+    #lightbox{opacity:0;transform:scale(.98);transition:all .26s ease}
+    #lightbox.open{opacity:1;transform:scale(1)}
+  </style>
+</body>
+</html>
